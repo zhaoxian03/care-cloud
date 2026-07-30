@@ -10,7 +10,6 @@
 
 ![系统架构图](docs/architecture.png)
 
-*（需要你补充：用 Draw.io 画 7 微服务 + 6 中间件拓扑图，参考 系统流程图.md 的图 1）*
 
 ---
 
@@ -57,7 +56,6 @@ care-cloud/
 - **缓存"先删后加"策略**：权限码登录时从数据库四表联查写入 Redis Set，覆盖旧缓存；无 TTL，彻底解决 Token 还在有效期但权限码已过期的 403 问题
 - **登录安全**：失败 5 次锁定 5 分钟（Redis 计数 + 自动过期）
 
-![登录流程](docs/login-flow.png)
 
 ### 2. AI 智能问答助手
 
@@ -66,7 +64,6 @@ care-cloud/
 - **流式推送**：SSE（Server-Sent Events）逐字推送前端
 - **对话记忆**：Redis 存储最近 10 条对话上下文，24 小时自动过期
 
-![AI 聊天截图](docs/ai-chat.png)
 
 ### 3. 支付宝支付 + 最终一致性保障
 
@@ -74,7 +71,6 @@ care-cloud/
 - **状态机乐观锁**：订单状态字段 `WHERE status='PENDING'` 防重复回调
 - **MQ 异步解耦**：支付成功后通过 RabbitMQ Direct 交换机投递通知
 
-![支付流程](docs/payment-flow.png)
 
 ### 4. 跨服务协作与基础设施
 
@@ -127,19 +123,7 @@ npm install
 npm run dev
 ```
 
----
 
-## 需要的图片清单
-
-| 文件名 | 内容 | 怎么做 |
-|--------|------|--------|
-| `docs/architecture.png` | 微服务架构拓扑图 | Draw.io 画 7 个微服务 + 6 个中间件 + 连线 |
-| `docs/login-flow.png` | 登录流程图 | 从 `系统流程图.md` 图 4 截图 |
-| `docs/payment-flow.png` | 支付流程图 | 从 `系统流程图.md` 图 6 截图 |
-| `docs/dashboard.png` | Dashboard 首页 | 运行项目后截图 |
-| `docs/ai-chat.png` | AI 聊天页面 | 运行项目后截图 |
-
----
 
 ## 联系我
 

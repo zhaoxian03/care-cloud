@@ -1,0 +1,21 @@
+sa-token:
+  token-name: Authorization
+  token-prefix: Bearer
+  timeout: 7200
+  is-read-header: true
+  is-write-header: false
+  is-concurrent: true
+  is-share: true
+  jwt-secret-key: ${SA_TOKEN_JWT_SECRET_KEY:carecloudsa-tokenjwtsecretkey2026}
+
+spring:
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+  cache:
+    redis:
+      time-to-live: 300000
+
+redisearch:
+  index-name: care-center-index  # 默认索引名称

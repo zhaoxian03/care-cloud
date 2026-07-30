@@ -1,0 +1,25 @@
+server:
+  port: 8083
+
+sa-token:
+  jwt-secret-key: ${SA_TOKEN_JWT_SECRET_KEY:carecloudsa-tokenjwtsecretkey2026}
+
+spring:
+  application:
+    name: life-service
+  profiles:
+    active: datasource, redis, mybatis, jwt, management, life, minio
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS_CONFIG_ADDR:localhost:8848}
+        prefix: care
+        file-extension: yml
+        namespace: bbaaab7c-134c-4044-bf60-64459651fe92
+      discovery:
+         server-addr: ${NACOS_CONFIG_ADDR:localhost:8848}
+
+alipay:
+  app-id: ${ALIPAY_APP_ID:9021000165622469}
+  private-key: ${ALIPAY_PRIVATE_KEY:MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCLr3P/7G2zF194y0SVd24Q+rKaaAJimVL+UCAveHKAnF5/b3zq/2moQsH8WjGmUL8ik+CYuED1y+aDJNCvH5bDiAkdMP3NLHJpMVmc5ZjkwT9BYaFWyKUB8GLyn4wTdQqPPNveuVn8tGyppF3go391BeJ0qxuYIWshv+OtGITFoFJC0mqr5xL80JW40bJAGc8mhYtWOZoh3Dwty0/XG/dYhZ5fPpn74JdeYORoNg0vvN1GO5C76nIgliBRNQcII+up+uLw/0R0BUZAIj80uLGhz16A5F218x8Dh0JqYIzWvkhp50erRrJ3cwJ24vJBoW4kxhATfCF2y7pFBG7ypd2BAgMBAAECggEASQEuEzeyLcOtdihmc+ezctRTvDdX58hSg+/EoorE7UrMaLYQB5Ht2q7pS8an5FCXVK8M10SVTuF+XFRFbQGJfi/+827DdxQfx7KvLz0gJ46ITNeFxyGee+DzFfMk9pZZKnuYPlOJIHX7xL3PArTwzGyC6o7zIRN2NnFfwPvriI12h7Y3o/biEuekXrKMXbOond2CqVvEbwC0ktBq25Ot6212+O+fHmnVCqYfcgi4Iszgw9qA5ygd+kjuC2vG+q4FCpy8jq6FkmgLW+RWNJFuUpZDihUz4EoPhNuDwDi4plJbWbnOr89oNp9B2QIK17rjU8ua5DqbBoo2BchK1Rxi8QKBgQDX86CJKFpECxgMQLHpBJs+RTr95/cP7UcxQI+Ihw6er6zm5EYSo+QTdXWge1h+NKV1/82ZQlpm83PM/ytWiiM+SEbUyjmYt36j7zdoLguokbhiVwGh77tQsVb6F9d4eRwnVL2EOoCMkFTQwmybcAcuJNi4so6Vss0Q8PuoXHD4owKBgQCllw800WFp+MsbnRVy81M6raUS5SsWhE52E+lfXTejWLrNfu13e8t1vEpZXAw1xkmSf9XhOEMVLGy7++THnQb8x+eaMGAr+83GAzCaCAYiS4TOqMJPv6gB3rUThyYln3jM5Q09UI9wJkMsDXay8feQCpP95qROYWNoL037A5J/iwKBgQCGEkto3BSuifS0JrZN5P48+t5VJN7OlJHOkjaKnM8G1iqSbsbSa83+Br6wk+Os9yKCz/3lWLynjh4m94UAhWK8GENheOupVMLbJHlRxMSYM2A2La5ly2CQCInnW0X7FbXU9Vdz8J4+pp0BvrOPDU5n55hlkvXTGt8V1YdoT3wT4QKBgQCk66aBfGgBG4FupyzNp/qk3n0iLIyViIB8qagtCrJ3RdAHCvuHnQwu3rFN/pdKl4p/FkL2ZQqq8+v37hEVnhdve8n3j2a5Z7iyFks5nfQ+A+jpyrp8ou25rw25vUkI/6NYrmhZQPsbP4B3R5GI9+UQ2Pg8UJIkXmqbQUHxVsV5sQKBgC+o0Hif73arduR4FAXp5yZFCJR1eGzSklgzkK4SX3Edxyxkm8SkUsJBwzD2kfnN0BAXHfVnf5GtWwuqk1OVy+3ZsM9yrtBih0DYpLtYCUWZfaMJvuaSkNuizcgwRVoR/7LieZWDVfgaPlla0SBDpHCIsEtWvC36gCmEE4inkTXO}
+  public-key: ${ALIPAY_PUBLIC_KEY:MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3xtjheuGjIkbElIuAk3lW2W0plyhUpPhwEmBmGs/5HufTZYkvwd+3C+ux0sV7jgZpfg3kbkNz6Zy9nG1EjsXNRqoH1bso/gRZKNn+3UXW51/UEjnJqS0dMOoTHrKTQpURiivNpYX/Y5gBGQHJhWi2iTwNp5eTZRUN8I8Yq3r5w3h0QL7X2SQOfwpdbPgzsIOBsKhWY/A4tt/86J6+UY1eOYdxjanIueXYzJOQASD9H4T0COBFJytE1Ik0BM0Aji+Sxj/9j2fGGyCyhnGff1eCOy94pj5DxS6Yrvgwvzr4MuJ6lPylfkSJmvNffHf+gF/qvlgLVO1Z4qTNCrBXEQgrQIDAQAB}

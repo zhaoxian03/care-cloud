@@ -1,0 +1,55 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: ai-service
+  profiles:
+    active: ai
+  datasource:
+    url: ${PG_URL:jdbc:postgresql://localhost:5433/care_ai}
+    username: ${PG_USERNAME:postgres}
+    password: ${PG_PASSWORD:postgres}
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS_CONFIG_ADDR:localhost:8848}
+        prefix: care
+        file-extension: yml
+        namespace: bbaaab7c-134c-4044-bf60-64459651fe92
+      discovery:
+        server-addr: ${NACOS_CONFIG_ADDR:localhost:8848}
+
+my:
+  mysql:
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/care_center?useSSL=false&characterEncoding=utf8}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:1234}
+
+langchain4j:
+  open-ai:
+    chat-model:
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      api-key: ${DASHSCOPE_API_KEY:sk-ws-H.RXPRHXR.3c0h.MEYCIQDhQs0tx-qRGeXc3AppMGaqL2-oa5lg7gnh6fbjVgCQ_gIhAMO6a8JYUrFF81PvQjxV5QYS8BIyuEokaVt045ko3lxe}
+      model-name: qwen-plus
+      timeout: 300000
+      log-requests: true
+      log-responses: true
+    streaming-chat-model:
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      api-key: ${DASHSCOPE_API_KEY:sk-ws-H.RXPRHXR.3c0h.MEYCIQDhQs0tx-qRGeXc3AppMGaqL2-oa5lg7gnh6fbjVgCQ_gIhAMO6a8JYUrFF81PvQjxV5QYS8BIyuEokaVt045ko3lxe}
+      model-name: qwen3.7-max-2026-05-17
+      timeout: 300000
+      log-requests: true
+      log-responses: true
+    embedding-model:
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      api-key: ${DASHSCOPE_API_KEY:sk-ws-H.RXPRHXR.3c0h.MEYCIQDhQs0tx-qRGeXc3AppMGaqL2-oa5lg7gnh6fbjVgCQ_gIhAMO6a8JYUrFF81PvQjxV5QYS8BIyuEokaVt045ko3lxe}
+      model-name: text-embedding-v4
+      timeout: 300000
+      log-requests: true
+      log-responses: true

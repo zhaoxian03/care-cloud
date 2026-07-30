@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.care.user.mapper.PermissionMapper">
+
+    <select id="selectPermissionsByAdminId" resultType="com.neusoft.care.user.entity.Permission">
+        SELECT DISTINCT p.id, p.name, p.code, p.type, p.parent_id AS parentId,
+               p.path, p.icon, p.back_url AS backUrl, p.sort,
+               p.create_date AS createDate, p.create_time AS createTime,
+               p.update_date AS updateDate, p.update_time AS updateTime
+        FROM admin_role ar
+        INNER JOIN role r ON ar.role_id = r.id
+        INNER JOIN role_permission rp ON r.id = rp.role_id
+        INNER JOIN permission p ON rp.permission_id = p.id
+        WHERE ar.admin_id = #{adminId} AND r.is_disabled = 0
+        ORDER BY p.sort ASC, p.id ASC
+    </select>
+
+</mapper>

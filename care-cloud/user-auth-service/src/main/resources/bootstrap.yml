@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+sa-token:
+  jwt-secret-key: ${SA_TOKEN_JWT_SECRET_KEY:carecloudsa-tokenjwtsecretkey2026}
+
+spring:
+  application:
+    name: user-auth-service
+  profiles:
+    active: datasource, redis, mybatis, jwt, management, minio
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS_CONFIG_ADDR:localhost:8848}
+        prefix: care
+        file-extension: yml
+        namespace: bbaaab7c-134c-4044-bf60-64459651fe92
+      discovery:
+        server-addr: ${NACOS_CONFIG_ADDR:localhost:8848}
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 10000
+            readTimeout: 60000

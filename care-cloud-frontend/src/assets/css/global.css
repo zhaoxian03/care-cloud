@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+}
+
+body {
+  background: #f0f2f5;
+}
+
+.el-menu--horizontal {
+  border-bottom: none !important;
+}
+
+.el-table {
+  margin-top: 15px;
+}
+
+.el-pagination {
+  margin-top: 15px;
+  justify-content: flex-end;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.page-container {
+  padding: 20px;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 20px;
+}
+
+.stat-card .stat-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #409eff;
+}
+
+.stat-card .stat-label {
+  font-size: 14px;
+  color: #909399;
+  margin-top: 8px;
+}
+
+/* ===== 头像预览弹窗 ===== */
+.avatar-popover {
+  padding: 0 !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.avatar-preview-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-preview-img {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #f5f7fa;
+}
+
+.avatar-preview-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-preview-empty {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #f5f7fa;
+  color: #c0c4cc;
+}
+
+.avatar-preview-empty span {
+  font-size: 12px;
+}
+
+.avatar-preview-name {
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #303133;
+}

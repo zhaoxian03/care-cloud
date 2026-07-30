@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+  profiles:
+    active: gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS_CONFIG_ADDR:localhost:8848}
+        prefix: care
+        file-extension: yml
+        namespace: bbaaab7c-134c-4044-bf60-64459651fe92
+      discovery:
+         server-addr: ${NACOS_CONFIG_ADDR:localhost:8848}
